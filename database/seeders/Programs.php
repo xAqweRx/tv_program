@@ -21,7 +21,7 @@ class Programs extends Seeder {
         ] );
 
 
-        ProgramItem::factory()->create( [
+        ProgramItem::factory()->count(100)->create( [
             'program_id' => $program->id,
         ] );
 

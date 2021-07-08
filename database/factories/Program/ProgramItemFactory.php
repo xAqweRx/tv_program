@@ -20,13 +20,13 @@ class ProgramItemFactory extends Factory {
      */
     public function definition() {
 
-        $from = ProgramItem::select('datetime_to')->first()->datetime_to ?? $this->faker->dateTime();
+        $from = $this->faker->dateTimeBetween( 'now', 'now' );
         $to = $from->add( new \DateInterval( 'PT10M' ) );
         return [
-                'name' => $this->faker->word,
-                'type' => $this->faker->randomElement( ProgramItem::TYPES ),
-                'datetime_from' => $from,
-                'datetime_to' => $to,
+            'name' => $this->faker->word,
+            'type' => $this->faker->randomElement( ProgramItem::TYPES ),
+            'datetime_from' => $from,
+            'datetime_to' => $to,
 
         ];
 
