@@ -15,8 +15,8 @@ class Program extends Controller {
 
     public function getList() {
         $now = Carbon::now();
-        $channel = \App\Models\Program\Program::first()->id;
-        $programs = $this->programService->getProgramsForDay( $channel, $now );
+        $channel = \App\Models\Program\Program::first();
+        $programs = $this->programService->getProgramsForDay( $channel->id, $now );
         return view( "program/list", [
             'now' => $now,
             'channel' => $channel,
