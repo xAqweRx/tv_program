@@ -14,7 +14,7 @@ class Program extends Controller {
     }
 
     public function getList() {
-        $now = Carbon::now();
+        $now = Carbon::createFromFormat('Y-m-d H:i:s','2021-07-07 00:00:00');
         $channel = \App\Models\Program\Program::first();
         $programs = $this->programService->getProgramsForDay( $channel->id, $now );
         return view( "program/list", [
